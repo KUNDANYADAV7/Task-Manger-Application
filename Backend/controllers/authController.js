@@ -89,10 +89,19 @@ export const logout = async (req, res) => {
     user.refreshToken = null;
     await user.save();
   }
+const isProduction = process.env.NODE_ENV === "production";
 
-  res
-    .clearCookie("accessToken")
-    .clearCookie("refreshToken")
+ res
+    .clearCookie("accessToken", {
+      httpOnly: true,
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
+    })
+    .clearCookie("refreshToken", {
+      httpOnly: true,
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
+    })
     .json({ msg: "Logged out" });
 };
 
