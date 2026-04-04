@@ -55,6 +55,7 @@ export const login = async (req, res) => {
 };
 
 export const refreshToken = async (req, res) => {
+  const isProduction = process.env.NODE_ENV === "production";
   const token = req.cookies.refreshToken;
 
   if (!token) return res.status(401).json({ msg: "No refresh token" });
