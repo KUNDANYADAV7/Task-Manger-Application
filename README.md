@@ -12,26 +12,26 @@ A full-stack **Todo Application** built using the **MERN Stack** with authentica
 
 ## 🔐 Authentication
 
-* Signup & Login
-* JWT Authentication (Access + Refresh Token)
-* HTTP-only Cookies (Secure)
-* Auto Token Refresh
-* Protected Routes
+- Signup & Login
+- JWT Authentication (Access + Refresh Token)
+- HTTP-only Cookies (Secure)
+- Auto Token Refresh
+- Protected Routes
 
 ## ✅ Task Management
 
-* Add Task
-* Edit Task
-* Delete Task
-* Mark as Completed / Pending
+- Add Task
+- Edit Task
+- Delete Task
+- Mark as Completed / Pending
 
 ## 🎨 UI & UX
 
-* Fully Responsive (Mobile + Desktop)
-* Dark / Light Mode 🌙☀️
-* Smooth Animations & Transitions
-* Toast Notifications
-* Clean Modern Design
+- Fully Responsive (Mobile + Desktop)
+- Dark / Light Mode 🌙☀️
+- Smooth Animations & Transitions
+- Toast Notifications
+- Clean Modern Design
 
 ---
 
@@ -73,7 +73,7 @@ A full-stack **Todo Application** built using the **MERN Stack** with authentica
 ## ✅ Completed Task
 
 <p align="center">
-  <img src="./screenshots/completed.png" width="80%" />
+  <img src="./screenshots/completeds.png" width="80%" />
 </p>
 
 ---
@@ -82,24 +82,24 @@ A full-stack **Todo Application** built using the **MERN Stack** with authentica
 
 ### Frontend
 
-* React.js (Vite)
-* Tailwind CSS v4
-* React Router
-* Context API
-* Axios
+- React.js (Vite)
+- Tailwind CSS v4
+- React Router
+- Context API
+- Axios
 
 ### Backend
 
-* Node.js
-* Express.js
-* MongoDB (Mongoose)
-* JWT Authentication
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- JWT Authentication
 
 ---
 
 # 📁 Folder Structure
 
-```bash
+````bash
 📦 SWAPNIL_TASK
  ┣ 📂 Backend
  ┃ ┣ 📂 config
@@ -140,7 +140,7 @@ JWT_REFRESH_SECRET=your_refresh_secret
 
 CLIENT_URL=http://localhost:5173
 NODE_ENV=development
-```
+````
 
 ---
 
@@ -187,18 +187,18 @@ npm run dev
 
 ## Auth
 
-* POST `/api/auth/signup`
-* POST `/api/auth/login`
-* POST `/api/auth/logout`
-* POST `/api/auth/refresh`
-* GET `/api/auth/me`
+- POST `/api/auth/signup`
+- POST `/api/auth/login`
+- POST `/api/auth/logout`
+- POST `/api/auth/refresh`
+- GET `/api/auth/me`
 
 ## Tasks
 
-* GET `/api/tasks`
-* POST `/api/tasks`
-* PUT `/api/tasks/:id`
-* DELETE `/api/tasks/:id`
+- GET `/api/tasks`
+- POST `/api/tasks`
+- PUT `/api/tasks/:id`
+- DELETE `/api/tasks/:id`
 
 ---
 
@@ -213,9 +213,9 @@ npm run dev
 
 # 🌙 Dark Mode
 
-* Implemented using Tailwind v4 custom variant
-* Toggle button in Navbar
-* Saved in localStorage
+- Implemented using Tailwind v4 custom variant
+- Toggle button in Navbar
+- Saved in localStorage
 
 ---
 
@@ -227,9 +227,9 @@ npm run dev
 
 # ⭐ Final Notes
 
-* `.env` files are not pushed for security
-* Add your own credentials before running
-* Production-ready MERN application
+- `.env` files are not pushed for security
+- Add your own credentials before running
+- Production-ready MERN application
 
 ---
 
