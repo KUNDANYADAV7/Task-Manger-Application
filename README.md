@@ -100,39 +100,30 @@ A full-stack **Todo Application** built using the **MERN Stack** with authentica
 # 📁 Folder Structure
 
 ```bash
-SWAPNIL_TASK/
- ├── Backend/
- ├── Frontend/
- ├── screenshots/
- ├── README.md
- ├── .gitignore
-```
-
-# 📁 Backend
-
-Backend/
- ├── config/
- ├── controllers/
- ├── middleware/
- ├── models/
- ├── routes/
- ├── utils/
- ├── .env
- ├── server.js
-
-# 📁 Frontend
-
-Frontend/
- ├── src/
- │   ├── api/
- │   ├── components/
- │   ├── context/
- │   ├── pages/
- │   ├── App.jsx
- │   ├── main.jsx
- │   ├── index.css
- ├── .env
- ├── vite.config.js
+📦 SWAPNIL_TASK
+ ┣ 📂 Backend
+ ┃ ┣ 📂 config
+ ┃ ┣ 📂 controllers
+ ┃ ┣ 📂 middleware
+ ┃ ┣ 📂 models
+ ┃ ┣ 📂 routes
+ ┃ ┣ 📂 utils
+ ┃ ┣ 🔐 .env
+ ┃ ┗ 🚀 server.js
+ ┣ 📂 Frontend
+ ┃ ┣ 📂 src
+ ┃ ┃ ┣ 📂 api
+ ┃ ┃ ┣ 📂 components
+ ┃ ┃ ┣ 📂 context
+ ┃ ┃ ┣ 📂 pages
+ ┃ ┃ ┣ ⚛️ App.jsx
+ ┃ ┃ ┣ ⚛️ main.jsx
+ ┃ ┃ ┗ 🎨 index.css
+ ┃ ┣ 🔐 .env
+ ┃ ┗ ⚡ vite.config.js
+ ┣ 🖼️ screenshots
+ ┣ 📄 README.md
+ ┗ 🚫 .gitignore
 
 ---
 
