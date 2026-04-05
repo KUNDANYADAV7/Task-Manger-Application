@@ -16,60 +16,62 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-  if (!form.email.trim()) {
-    return toast.error("Email is required");
-  }
+    if (!form.email.trim()) return toast.error("Email is required");
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(form.email)) {
-    return toast.error("Invalid email format");
-  }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) return toast.error("Invalid email format");
 
-  if (!form.password.trim()) {
-    return toast.error("Password is required");
-  }
+    if (!form.password.trim()) return toast.error("Password is required");
+    if (form.password.length < 6) return toast.error("Password must be at least 6 characters");
 
-  if (form.password.length < 6) {
-    return toast.error("Password must be at least 6 characters");
-  }
     try {
-      setBtnLoading(true);   // start loading
+      setBtnLoading(true);
       await login(form);
       toast.success("Login successful");
       navigate("/");
     } catch (err) {
       toast.error(err?.response?.data?.msg || "Login failed");
     } finally {
-    setBtnLoading(false);  // stop loading
-  }
+      setBtnLoading(false);
+    }
   };
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
-      <form className="bg-white p-6 rounded-lg shadow-md w-80" onSubmit={handleSubmit}>
-        <h2 className="text-xl font-bold mb-4 text-center">Login</h2>
+      <form
+        className="bg-white p-6 rounded-lg shadow-lg w-80 transform transition-all duration-500 ease-out hover:scale-105 animate-slideInLeft"
+        onSubmit={handleSubmit}
+      >
+        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800 animate-slideInBottom">
+          Login
+        </h2>
 
         <input
-          className="w-full mb-3 p-2 border rounded"
+          className="w-full mb-3 p-2 border rounded transition duration-300 ease-in-out focus:ring-2 focus:ring-blue-400 focus:border-blue-400 animate-slideInBottom"
           placeholder="Email"
           onChange={(e) => setForm({ ...form, email: e.target.value })}
         />
 
         <input
           type="password"
-          className="w-full mb-3 p-2 border rounded"
+          className="w-full mb-3 p-2 border rounded transition duration-300 ease-in-out focus:ring-2 focus:ring-blue-400 focus:border-blue-400 animate-slideInBottom"
           placeholder="Password"
           onChange={(e) => setForm({ ...form, password: e.target.value })}
         />
 
-        <button className="w-full bg-blue-500 text-white p-2 rounded disabled:opacity-50" disabled={btnLoading}>
+        <button
+          className="w-full bg-blue-500 text-white p-2 rounded disabled:opacity-50 transition-all duration-300 ease-in-out hover:bg-blue-600 active:scale-95 animate-slideInBottom"
+          disabled={btnLoading}
+        >
           {btnLoading ? "Logging in..." : "Login"}
         </button>
 
-        {/* Signup Link */}
-        <p className="text-sm mt-4 text-center">
+        <p className="text-sm mt-4 text-center animate-slideInBottom">
           Don’t have an account?{" "}
-          <Link to="/signup" className="text-blue-500 font-semibold">
+          <Link
+            to="/signup"
+            className="text-blue-500 font-semibold transition duration-300 hover:text-blue-700"
+          >
             Signup
           </Link>
         </p>
