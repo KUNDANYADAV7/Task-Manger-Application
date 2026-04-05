@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+/*  smooth theme transition */
+
+* {
+    @apply transition-colors duration-600;
+}
+
+
+/* Enable class-based dark mode manually */
+
+@custom-variant dark (&:where(.dark, .dark *));

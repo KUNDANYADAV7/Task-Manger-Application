@@ -1,13 +1,13 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import API from "../api/axios";
 import toast from "react-hot-toast";
-import { AuthContext } from "./AuthContext"; // ✅ import
+import { AuthContext } from "./AuthContext"; // import
 
 export const TaskContext = createContext();
 
 export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
-  const { user } = useContext(AuthContext); // ✅ get user
+  const { user } = useContext(AuthContext); // get user
 
   const fetchTasks = async () => {
     try {

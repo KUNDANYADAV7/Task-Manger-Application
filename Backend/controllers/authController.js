@@ -43,7 +43,7 @@ export const login = async (req, res) => {
   res
     .cookie("accessToken", accessToken, {
       httpOnly: true,
-      secure: isProduction,  // true in production
+      secure: isProduction,  // true in production 
       sameSite: isProduction ? "none" : "lax",
     })
     .cookie("refreshToken", refreshToken, {
