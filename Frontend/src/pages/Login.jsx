@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 export default function Login() {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [btnLoading, setBtnLoading] = useState(false);
 
   const [form, setForm] = useState({
     email: "",
@@ -32,12 +33,15 @@ export default function Login() {
     return toast.error("Password must be at least 6 characters");
   }
     try {
+      setBtnLoading(true);   // start loading
       await login(form);
       toast.success("Login successful");
       navigate("/");
     } catch (err) {
       toast.error(err?.response?.data?.msg || "Login failed");
-    }
+    } finally {
+    setBtnLoading(false);  // stop loading
+  }
   };
 
   return (
@@ -58,11 +62,11 @@ export default function Login() {
           onChange={(e) => setForm({ ...form, password: e.target.value })}
         />
 
-        <button className="w-full bg-blue-500 text-white p-2 rounded">
-          Login
+        <button className="w-full bg-blue-500 text-white p-2 rounded disabled:opacity-50" disabled={btnLoading}>
+          {btnLoading ? "Logging in..." : "Login"}
         </button>
 
-        {/* 👇 Signup Link */}
+        {/* Signup Link */}
         <p className="text-sm mt-4 text-center">
           Don’t have an account?{" "}
           <Link to="/signup" className="text-blue-500 font-semibold">

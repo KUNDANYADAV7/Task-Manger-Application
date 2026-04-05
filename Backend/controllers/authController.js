@@ -3,9 +3,10 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import {
   generateAccessToken,
-  generateRefreshToken
+  generateRefreshToken,
 } from "../utils/generateTokens.js";
 
+// Signup
 export const signup = async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -17,12 +18,13 @@ export const signup = async (req, res) => {
   const user = await User.create({
     name,
     email,
-    password: hashed
+    password: hashed,
   });
 
   res.json({ msg: "User registered" });
 };
 
+// Login
 export const login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -43,7 +45,7 @@ export const login = async (req, res) => {
   res
     .cookie("accessToken", accessToken, {
       httpOnly: true,
-      secure: isProduction,  // true in production 
+      secure: isProduction, // true in production
       sameSite: isProduction ? "none" : "lax",
     })
     .cookie("refreshToken", refreshToken, {
@@ -54,6 +56,7 @@ export const login = async (req, res) => {
     .json({ msg: "Login successful" });
 };
 
+// Refresh Token
 export const refreshToken = async (req, res) => {
   const isProduction = process.env.NODE_ENV === "production";
   const token = req.cookies.refreshToken;
@@ -81,6 +84,7 @@ export const refreshToken = async (req, res) => {
   }
 };
 
+// Logout
 export const logout = async (req, res) => {
   const token = req.cookies.refreshToken;
 
@@ -89,9 +93,9 @@ export const logout = async (req, res) => {
     user.refreshToken = null;
     await user.save();
   }
-const isProduction = process.env.NODE_ENV === "production";
+  const isProduction = process.env.NODE_ENV === "production";
 
- res
+  res
     .clearCookie("accessToken", {
       httpOnly: true,
       secure: isProduction,
@@ -105,6 +109,7 @@ const isProduction = process.env.NODE_ENV === "production";
     .json({ msg: "Logged out" });
 };
 
+// Get current logged-in user
 export const getMe = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");

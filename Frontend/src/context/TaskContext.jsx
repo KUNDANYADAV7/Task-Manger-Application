@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import API from "../api/axios";
 import toast from "react-hot-toast";
-import { AuthContext } from "./AuthContext"; // import
+import { AuthContext } from "./AuthContext"; 
 
 export const TaskContext = createContext();
 
@@ -18,7 +18,7 @@ export const TaskProvider = ({ children }) => {
     }
   };
 
-  // ✅ IMPORTANT FIX
+  // IMPORTANT FIX
   useEffect(() => {
     if (user) {
       fetchTasks(); // login → fetch tasks

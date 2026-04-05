@@ -1,5 +1,3 @@
-// context/ThemeContext.jsx
-
 import { createContext, useEffect, useState } from "react";
 
 export const ThemeContext = createContext();
@@ -10,7 +8,7 @@ export const ThemeProvider = ({ children }) => {
 
     if (saved) return saved === "dark";
 
-    // ✅ system preference
+    // system preference
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
   };
 

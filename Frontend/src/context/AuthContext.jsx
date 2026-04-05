@@ -10,11 +10,11 @@ export const AuthProvider = ({ children }) => {
   const checkAuth = async () => {
     try {
       const res = await API.get("/auth/me");
-      setUser(res.data); 
+      setUser(res.data);   // store full user
     } catch (error) {
       setUser(null);
     } finally {
-      setLoading(false);
+      setLoading(false);  // always stop loading
     }
   };
 

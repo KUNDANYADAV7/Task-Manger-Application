@@ -13,38 +13,38 @@ function App() {
   return (
     <AuthProvider>
       <ThemeProvider>
-      <TaskProvider>
-      <BrowserRouter>
-       <Toaster position="top-right" />
-        <Routes>
-         <Route
-    path="/"
-    element={
-      <PrivateRoute>
-        <Dashboard />
-      </PrivateRoute>
-    }
-  />
-<Route
-    path="/login"
-    element={
-      <PublicRoute>
-        <Login />
-      </PublicRoute>
-    }
-  />
+        <TaskProvider>
+          <BrowserRouter>
+            <Toaster position="top-right" />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <PrivateRoute>
+                    <Dashboard />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <PublicRoute>
+                    <Login />
+                  </PublicRoute>
+                }
+              />
 
-  <Route
-    path="/signup"
-    element={
-      <PublicRoute>
-        <Signup />
-      </PublicRoute>
-    }
-  />
-        </Routes>
-      </BrowserRouter>
-      </TaskProvider>
+              <Route
+                path="/signup"
+                element={
+                  <PublicRoute>
+                    <Signup />
+                  </PublicRoute>
+                }
+              />
+            </Routes>
+          </BrowserRouter>
+        </TaskProvider>
       </ThemeProvider>
     </AuthProvider>
   );
