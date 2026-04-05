@@ -73,7 +73,7 @@ A full-stack **Todo Application** built using the **MERN Stack** with authentica
 ## ✅ Completed Task
 
 <p align="center">
-  <img src="./screenshots/completeds.png" width="80%" />
+  <img src="./screenshots/completed.png" width="80%" />
 </p>
 
 ---
