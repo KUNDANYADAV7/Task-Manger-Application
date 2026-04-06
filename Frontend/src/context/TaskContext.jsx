@@ -29,13 +29,11 @@ export const TaskProvider = ({ children }) => {
 
   const addTask = async (form) => {
     await API.post("/tasks", form);
-    toast.success("Task added");
     fetchTasks();
   };
 
   const updateTask = async (id, form) => {
     await API.put(`/tasks/${id}`, form);
-    toast.success("Task updated");
     fetchTasks();
   };
 

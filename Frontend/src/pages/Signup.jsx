@@ -18,101 +18,99 @@ export default function Signup() {
     e.preventDefault();
 
     if (!form.name.trim()) return toast.error("Name is required");
-    if (form.name.length < 2) return toast.error("Name must be at least 2 characters");
+    if (form.name.length < 2)
+      return toast.error("Name must be at least 2 characters");
+
     if (!form.email.trim()) return toast.error("Email is required");
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(form.email)) return toast.error("Invalid email format");
+    if (!emailRegex.test(form.email))
+      return toast.error("Invalid email format");
 
-    if (!form.password.trim()) return toast.error("Password is required");
-    if (form.password.length < 6) return toast.error("Password must be at least 6 characters");
+    if (!form.password.trim())
+      return toast.error("Password is required");
+    if (form.password.length < 6)
+      return toast.error("Password must be at least 6 characters");
 
     try {
-      setBtnLoading(true);   // start loading
+      setBtnLoading(true);
       await signup(form);
       toast.success("Signup successful");
       navigate("/login");
     } catch (err) {
       toast.error(err?.response?.data?.msg || "Signup failed");
     } finally {
-      setBtnLoading(false);  // stop loading
+      setBtnLoading(false);
     }
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <form
-        className="bg-white p-6 rounded-lg shadow-lg w-80 transform transition-all duration-500 ease-out hover:scale-105 animate-slideInLeft"
-        onSubmit={handleSubmit}
-      >
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800 animate-slideInBottom">
-          Signup
-        </h2>
+    <div className="flex justify-center items-center h-screen bg-gray-300 relative overflow-hidden">
+  
+  <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-blue-400 rounded-full filter blur-3xl opacity-30 animate-pulse"></div>
+  
+  <form
+    onSubmit={handleSubmit}
+    className="relative z-10 bg-[#1e293b]/60 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-2xl w-[90%] max-w-md transform transition-all duration-500 ease-out hover:scale-[1.02] animate-slideInLeft"
+  >
+    {/* Heading */}
+    <h2 className="text-3xl font-bold text-center text-white mb-2">
+      Create Account 🚀
+    </h2>
+    <p className="text-center text-gray-300 mb-8">
+      Start managing your tasks
+    </p>
 
-        <input
-          placeholder="Name"
-          className="w-full mb-3 p-2 border rounded transition duration-300 ease-in-out focus:ring-2 focus:ring-green-400 focus:border-green-400 animate-slideInBottom"
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-        />
+    {/* Name */}
+    <input
+      type="text"
+      placeholder="Enter your full name"
+      className="w-full mb-4 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white/10 transition-all"
+      onChange={(e) => setForm({ ...form, name: e.target.value })}
+    />
 
-        <input
-          placeholder="Email"
-          className="w-full mb-3 p-2 border rounded transition duration-300 ease-in-out focus:ring-2 focus:ring-green-400 focus:border-green-400 animate-slideInBottom"
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-        />
+    {/* Email */}
+    <input
+      type="email"
+      placeholder="Enter your email"
+      className="w-full mb-4 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white/10 transition-all"
+      onChange={(e) => setForm({ ...form, email: e.target.value })}
+    />
 
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full mb-3 p-2 border rounded transition duration-300 ease-in-out focus:ring-2 focus:ring-green-400 focus:border-green-400 animate-slideInBottom"
-          onChange={(e) => setForm({ ...form, password: e.target.value })}
-        />
+    {/* Password */}
+    <input
+      type="password"
+      placeholder="Enter your password"
+      className="w-full mb-6 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white/10 transition-all"
+      onChange={(e) => setForm({ ...form, password: e.target.value })}
+    />
 
-        <button
-          className="w-full bg-blue-500 text-white p-2 rounded disabled:opacity-50 transition-all duration-300 ease-in-out hover:bg-blue-600 active:scale-95 animate-slideInBottom"
-          disabled={btnLoading}
-        >
-          {btnLoading ? (
-            <span className="flex justify-center items-center">
-              <svg
-                className="animate-spin h-5 w-5 mr-2 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                ></circle>
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8v8H4z"
-                ></path>
-              </svg>
-              Signing up...
-            </span>
-          ) : (
-            "Signup"
-          )}
-        </button>
+    {/* Button */}
+    <button
+      disabled={btnLoading}
+      className="w-full bg-blue-600 hover:bg-blue-500 transition duration-300 text-white py-3 rounded-xl font-bold shadow-lg shadow-blue-600/30 disabled:opacity-50 flex justify-center items-center active:scale-95"
+    >
+      {btnLoading ? (
+        <span className="flex items-center">
+          <svg className="animate-spin h-5 w-5 mr-2 text-white" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+          </svg>
+          Signing up...
+        </span>
+      ) : (
+        "Signup"
+      )}
+    </button>
 
-        {/* Login Link */}
-        <p className="text-sm mt-4 text-center animate-slideInBottom">
-          Already have an account?{" "}
-          <Link
-            to="/login"
-            className="text-blue-500 font-semibold transition duration-300 hover:text-blue-700"
-          >
-            Login
-          </Link>
-        </p>
-      </form>
-    </div>
+    {/* Login Link */}
+    <p className="text-center text-gray-300 mt-6 text-sm">
+      Already have an account?{" "}
+      <Link to="/login" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">
+        Login
+      </Link>
+    </p>
+  </form>
+</div>
   );
 }
-

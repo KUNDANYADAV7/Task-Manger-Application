@@ -62,6 +62,14 @@ A full-stack **Todo Application** built using the **MERN Stack** with authentica
 
 ---
 
+## ➕ Add Task
+
+<p align="center">
+  <img src="./screenshots/add-task.png" width="80%" />
+</p>
+
+---
+
 ## ✏️ Edit Task
 
 <p align="center">
@@ -221,7 +229,7 @@ npm run dev
 
 # 👨‍💻 Author
 
-**Swapnil Patel**
+**Kundan Yadav**
 
 ---
 
